@@ -1,0 +1,51 @@
+= form_with(model: user) do |form|
+  - if user.errors.any?
+    #error_explanation
+      h2
+        = pluralize(user.errors.count, "error")
+        |  prohibited this user from being saved:
+      ul
+        - user.errors.each do |error|
+          li
+            = error.full_message
+  / .field
+  /   = form.label :name
+  /   = form.text_field :name
+  / .field
+  /   = form.label :balance
+  /   = form.number_field :balance
+  / .field
+  /   = form.label :role_id
+  /   = form.text_field :role_id
+
+
+  .d-flex.justify-content-center.text-center
+
+    .form-signin
+      label.form-label[for="formControlInput"]
+        = form.label :user_name
+      = form.text_field :name, class:"form-control text-center mb-1", placeholder: "Juan Dela Cruz"
+      
+      label.form-label[for="formControlInput"]
+        = form.label :role_id
+      = form.text_field :role_id, class:"form-control text-center mb-1", placeholder: "User"
+
+      label.form-label[for="formControlInput"]
+        = form.label :balance
+      = form.text_field :balance, class:"form-control text-center mb-1", placeholder: "Amount (₱)"
+
+      .d-flex.justify-content-center.text-center
+        .d-flex.justify-content-center.px-4.mt-3
+          | 'save'
+
+        .d-flex.justify-content-center.px-4
+          = form.submit 'Save', class: " btn btn-primary mt-2 index-1 "
+
+
+
+
+
+
+
+  / .actions
+  /   = form.submit

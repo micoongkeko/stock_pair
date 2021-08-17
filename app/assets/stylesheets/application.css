@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+ .nav_bar {
+    background-color: rgb(156, 197, 59,.5);
+    position:fixed ;
+    top: 0;
+    width: 100%;
+    z-index: +2;
+}
+
+.form_container {
+    height: 100vh;
+    position:fixed ;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.back_butt {
+    position: relative;
+    top: -3.36rem;
+    left: -2.7rem;
+}
+
+.index-1 {
+    z-index: +1;
+}

@@ -1,0 +1,10 @@
+.form_container.text-primary.card.border-primary
+  
+  .d-flex.justify-content-center.my-3
+    h4.mx-4.mt-4 
+      | Editing User
+
+  = render 'form_edit', user: @user
+
+  .d-flex.justify-content-center.back_butt
+    = link_to 'Back', users_path,class: "btn btn-warning mt-3"
