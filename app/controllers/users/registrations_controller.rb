@@ -16,7 +16,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.create(user_params)
 
     if @user.save
-      redirect_to users_path
+      sign_out resource
+      redirect_to user_session_path
     else 
       render :new
     end

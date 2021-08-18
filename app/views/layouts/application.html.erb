@@ -12,6 +12,11 @@
 
   <body>
     <%= yield %>
+    <% if current_user != nil %>
+    <p>The current user is <%= current_user.name %></p>
+    <% else %> 
+    <p>You are not signed in</p>
+    <% end %>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
