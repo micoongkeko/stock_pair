@@ -11,7 +11,7 @@ RSpec.describe "ALL USERS and DETAILS", type: :system do
     Role.destroy_all
     @role = Role.create(name: "user")
     @user = User.create( name: "NameX", role_id: @role.id , balance: "100", email: 'test123@example.com', password: 'f4k3p455w0rd' )
-end
+    end
 
   before :each  do
     login_as(@user, :scope => :user)
