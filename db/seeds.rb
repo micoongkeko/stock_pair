@@ -7,11 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Role.destroy_all
-Role.create(name: "user")
-Role.create(name: "admin")
+User.destroy_all
+
+r1 = Role.create(name: "user")
+r2 = Role.create(name: "admin")
 
 
-User.create( name: "NameX", role_id: "3", balance: "100", email: 'admin@admin.com', password: 'admin' )
-User.create( name: "NameY", role_id: "3", balance: "100", email: 'admin@admin.com', password: 'admin' )
-User.create( name: "NameZ", role_id: "3", balance: "100", email: 'admin@admin.com', password: 'admin' )
+User.create( name: "NameX", role_id: r1.id, balance: "100", email: 'admin@admin.com', password: 'admin1' )
+User.create( name: "NameY", role_id: r1.id, balance: "100", email: 'admin2@admin.com', password: 'admin1' )
+User.create( name: "NameZ", role_id: r1.id, balance: "100", email: 'admin3@admin.com', password: 'admin1' )
 

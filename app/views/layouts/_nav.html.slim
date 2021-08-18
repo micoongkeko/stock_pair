@@ -1,0 +1,15 @@
+.navbar.bg-dark
+  .d-flex.justify-content-between.col-12
+    a.navbar-brand.px-4.btn[href="/"]
+
+      h3.text-white
+        |Trading App
+
+    .logout_now.mx-3.mt-2
+      ul.navbar-nav.ml-auto
+        - if user_signed_in?
+          li.nav-item
+            = link_to "Logout", destroy_user_session_path, method: :delete ,class: "btn btn-primary ms-4 text-white"
+        - else
+          li.nav-item
+            = link_to "Login", new_user_session_path,class: "btn btn-primary ms-4 text-white"
