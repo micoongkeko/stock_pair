@@ -1,0 +1,10 @@
+- if current_user.name=='admin'
+  = render 'users/alluser'
+- else
+  = render 'users/forUser'
+
+.d-flex.justify-content-center
+  h2
+    | welcome 
+    strong
+      = current_user.name + "!"
