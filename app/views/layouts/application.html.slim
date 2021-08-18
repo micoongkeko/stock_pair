@@ -16,3 +16,9 @@ html
       = render "layouts/nav"      
     = yield
 
+    - if current_user != nil
+      p
+        | The current user is #{current_user.name}
+    - else
+      p You are not signed in
+
