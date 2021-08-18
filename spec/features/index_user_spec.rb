@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "EDIT USER DETAILS", type: :system do
+RSpec.describe "ALL USERS and DETAILS", type: :system do
 
   before do
     driven_by(:rack_test)
