@@ -15,9 +15,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # params.permit!
     @user = User.create(user_params)
 
-    if @user.save 
+    if @user.save
       redirect_to users_path
+    else 
+      render :new
     end
+    
   end
 
   # GET /resource/edit
