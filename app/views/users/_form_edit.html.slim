@@ -8,22 +8,12 @@
         - user.errors.each do |error|
           li
             = error.full_message
-  / .field
-  /   = form.label :name
-  /   = form.text_field :name
-  / .field
-  /   = form.label :balance
-  /   = form.number_field :balance
-  / .field
-  /   = form.label :role_id
-  /   = form.text_field :role_id
-
 
   .d-flex.justify-content-center.text-center
 
     .form-signin
       label.form-label[for="formControlInput"]
-        = form.label :user_name
+        = form.label :name
       = form.text_field :name, class:"form-control text-center mb-1", placeholder: "Juan Dela Cruz"
       
       label.form-label[for="formControlInput"]

@@ -14,8 +14,8 @@
  *= require_self
  */
 
- .nav_bar {
-    background-color: rgb(156, 197, 59,.5);
+.nav_bar {
+    background-color: rgba(156, 197, 59, 0.527);
     position:fixed ;
     top: 0;
     width: 100%;

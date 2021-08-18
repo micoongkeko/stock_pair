@@ -9,3 +9,6 @@
 Role.destroy_all
 Role.create(name: "user")
 Role.create(name: "admin")
+
+
+User.create( name: "NameX", role_id: "3", balance: "100", email: 'admin@admin.com', password: 'admin' )

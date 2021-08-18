@@ -1,77 +1,51 @@
 require 'rails_helper'
 
-RSpec.describe "Edit user details", type: :feature do
+RSpec.describe "EDIT USER DETAILS", type: :system do
 
-  User.destroy_all
-  
-  before :each do
-    @user = User.create( name: "NameX", role_id: "3", balance: "100", email: 'test123@example.com', password: 'f4k3p455w0rd' )
+  before do
+    driven_by(:rack_test)
+  end
 
+  before :all do
+    User.destroy_all
+    Role.destroy_all
+    @role = Role.create(name: "user")
+    @user = User.create( name: "NameX", role_id: @role.id , balance: "100", email: 'test123@example.com', password: 'f4k3p455w0rd' )
+  end
+
+  before :each  do
     login_as(@user, :scope => :user)
-
-
-
+    visit  "/users/#{@user.id}/edit"
   end
-
-  before(:each) do
-    @user = assign(:user, User.create!( name: "NameX", balance: "100", email: 'test123@example.com', password: 'f4k3p455w0rd', role_id: '4' ))
-  end
-
   
-  describe  "When edit name to 'edited NameX' " do
-
-    it "should have content edited NameX" do
-      # visit "users/#{User.last.id}/edit "
-      expect(page).to have_current_path  "/users/#{User.last.id}/edit" 
-
-      # fill_in 'xxxx', with: 'value'
-      click_button 'Save'
-      # expect(user.save).to be_false
+  describe  "Route/path" do
+    it "should c" do
+      expect(page).to have_current_path edit_user_path(@user.id)
     end
+  end
+  
+  describe  "Edit name" do
+    it "should update name to edited NameX" do
+      fill_in 'Name', with: 'edited NameX'
+      click_button 'Save'
+      expect(User.last.name).to have_content('edited NameX')
+    end
+  end
 
-  #   it "should not save" do
-  #       expect(user.save).to be_false
-  #   end
-  # end
+  describe  "Edit balance" do
+    it "should update balance to 500" do
+      fill_in 'Balance', with: '500'
+      click_button 'Save'
+      expect(User.last.balance).to have_content('500')
+    end
+  end
 
-  # context "when middle name is empty" do
-  #   it "should not be valid" do
-  #       expect(user.valid?).to be_false
-  #   end
-
-  #   it "should not save" do
-  #       expect(user.save).to be_false
-  #   end
-  # end
-
-  # context "when last name is empty" do
-  #   it "should not be valid" do
-  #       expect(user.valid?).to be_false
-  #   end
-
-  #   it "should not save" do
-  #       expect(user.save).to be_false
-  #   end
-  # end
-
-  # context "when balacne is empty" do
-  #   it "should not be valid" do
-  #       expect(user.valid?).to be_false
-  #   end
-
-  #   it "should not save" do
-  #       expect(user.save).to be_false
-  #   end
-  # end
-
-  # context "when first, middle, last and balance is valid" do
-  #   it "should not be valid" do
-  #       expect(user.valid?).to be_false
-  #   end
-
-  #   it "should not save" do
-  #       expect(user.save).to be_false
-  #   end
+  describe  "redirect on Save" do
+    it "should redirect users_path" do
+      fill_in 'Name', with: 'edited NameX'
+      click_button 'Save'
+      expect(page).to have_current_path users_path
+    end
   end
 
 end
