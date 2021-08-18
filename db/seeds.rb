@@ -12,3 +12,6 @@ Role.create(name: "admin")
 
 
 User.create( name: "NameX", role_id: "3", balance: "100", email: 'admin@admin.com', password: 'admin' )
+User.create( name: "NameY", role_id: "3", balance: "100", email: 'admin@admin.com', password: 'admin' )
+User.create( name: "NameZ", role_id: "3", balance: "100", email: 'admin@admin.com', password: 'admin' )
+
