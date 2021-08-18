@@ -15,8 +15,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # params.permit!
     @user = User.create(user_params)
 
-
-
     if @user.save
       sign_out resource
       redirect_to user_session_path

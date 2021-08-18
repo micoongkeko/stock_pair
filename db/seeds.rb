@@ -13,7 +13,9 @@ r1 = Role.create(name: "user")
 r2 = Role.create(name: "admin")
 
 
-User.create( name: "NameX", role_id: r1.id, balance: "100", email: 'admin@admin.com', password: 'admin1' )
+User.create( name: "NameX", role_id: r1.id, balance: "100", email: 'admin1@admin.com', password: 'admin1' )
 User.create( name: "NameY", role_id: r1.id, balance: "100", email: 'admin2@admin.com', password: 'admin1' )
 User.create( name: "NameZ", role_id: r1.id, balance: "100", email: 'admin3@admin.com', password: 'admin1' )
+
+User.create( name: "admin", role_id: r2.id, balance: "100", email: 'admin@admin.com', password: 'admin1' )
 
