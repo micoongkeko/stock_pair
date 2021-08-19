@@ -1,19 +1,18 @@
+<br/>
+<br/>
+<br/>
+<br/>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Balance:</strong>
-  <%= @user.balance %>
-</p>
-
-<p>
-  <strong>Role:</strong>
-  <%= @user.role_id %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="container d-flex flex-column justify-content-center align-items-center h-100">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><strong>Name:</strong><%= @user.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><strong>Balance:</strong><%= @user.balance %></h6>
+      <h6 class="card-subtitle mb-2 text-muted"><strong>Email:</strong><%= @user.email %></h6>
+      <h6 class="card-subtitle mb-2 text-muted"><strong>Role ID:</strong><%= @user.role_id %></h6>
+    </div>
+  </div>
+  <p><%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %></p>
+</div>
