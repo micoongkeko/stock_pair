@@ -31,9 +31,9 @@ RSpec.describe "ALL USERS and DETAILS", type: :system do
     it "should have balance: 100" do
         expect(page).to have_content('100')
     end
-    it "should have role: #{Role.last.id}" do
-        expect(page).to have_content(@role.id)
-    end
+    # it "should have role: #{Role.last.id}" do
+    #     expect(page).to have_content(@role.id)
+    # end
   end
 
 end

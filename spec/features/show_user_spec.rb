@@ -16,7 +16,11 @@ RSpec.feature "Users#show", type: :system do
 
   before :each do
     login_as(@user)
-    visit user_path(@user)
+    visit users_path
+  end
+
+  it "redirects to user's index page" do
+    expect(page).to have_content("Welcome and good luck with your trades")
   end
 
   it "displays user's name" do
@@ -27,8 +31,8 @@ RSpec.feature "Users#show", type: :system do
     expect(page).to have_content("100")
   end
 
-  it "displays user's role ID" do
-    expect(page).to have_content(@user.role_id)
+  it "displays user's email" do
+    expect(page).to have_content(@user.email)
   end
 
 end
