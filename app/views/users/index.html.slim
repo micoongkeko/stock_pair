@@ -25,25 +25,20 @@ br/
           Stock Name Two - 400 shares
   .col-md-6.p-0.bg-white.h-md-100
     .d-md-flex.align-items-center.h-md-100.p-5.justify-content-around.flex-column
-      table.table
-        thead
-          tr
-            th scope="col"  #
-            th scope="col"  STOCK NAME 
-            th scope="col"  AVAILABLE TO PURCHASE
-        tbody
-          tr
-            th scope="row"  1
-            td Mark
-            td 5512
-          tr
-            th scope="row"  2
-            td Jacob
-            td 12315
-          tr
-            th scope="row"  3
-            td Larry
-            td 1500
+      - if @stocks != nil
+        table.table
+          thead
+            tr
+              th scope="col"  #
+              th scope="col"  Stock Name
+              th scope="col"  Quantity
+          - @stocks.each do |s|
+            tbody
+              tr
+                th scope="row" = s.id
+                td= s.name
+                td= s.quantity
+      
       .card
         .card-body
           h2.card-title BUY ORDER
@@ -51,9 +46,9 @@ br/
             .form-group
               label for="stockName"  Stock:
               select#stockName.form-control
-                option Mark
-                option Jacob
-                option Larry
+                - if @stocks != nil
+                  - @stocks.each do |s|
+                    option= s.name
             .form-group
               label for="stockQty"  Quantity
               input#stockQty.form-control placeholder=("Enter amount here") type="number" /
@@ -66,8 +61,9 @@ br/
             .form-group
               label for="stockName"  Stock:
               select#stockName.form-control
-                option Name One
-                option Name Two
+                - if @stocks != nil
+                  - @stocks.each do |s|
+                    option= s.name
             .form-group
               label for="stockQty"  Quantity
               input#stockQty.form-control placeholder=("Enter amount here") type="number" /

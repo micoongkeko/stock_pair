@@ -19,3 +19,9 @@ User.create( name: "NameZ", role_id: r1.id, balance: "100", email: 'admin3@admin
 
 User.create( name: "admin", role_id: r2.id, balance: "100", email: 'admin@admin.com', password: 'admin1' )
 
+Stock.create( name: "Apple", quantity: 5000 )
+Stock.create( name: "Samsung", quantity: 2400 )
+Stock.create( name: "Microsoft", quantity: 7000 )
+Stock.create( name: "Canon", quantity: 2500 )
+
+
