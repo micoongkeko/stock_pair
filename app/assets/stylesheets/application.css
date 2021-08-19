@@ -44,3 +44,7 @@
 .top_offset {
   height: 7.5rem;
 }
+
+.horizontalX {
+    flex-direction: column;
+}

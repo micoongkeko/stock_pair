@@ -5,11 +5,19 @@
       h3.text-white
         |Trading App
 
-    .logout_now.mx-3.mt-2
-      ul.navbar-nav.ml-auto
-        - if user_signed_in?
-          li.nav-item
+    .d-flex.justify-content-between
+      .logout_now.mx-3.mt-2
+        .navbar-nav.ml-auto
+          / - if user_signed_in?
+          /   .nav-item
+          /     = link_to "Logout", destroy_user_session_path, method: :delete ,class: "btn btn-primary ms-4 text-white"
+          / - else
+          /   .nav-item
+          /     = link_to "Login", new_user_session_path,class: "btn btn-primary ms-4 text-white"
+
+        div
+          - if user_signed_in?
             = link_to "Logout", destroy_user_session_path, method: :delete ,class: "btn btn-primary ms-4 text-white"
-        - else
-          li.nav-item
-            = link_to "Login", new_user_session_path,class: "btn btn-primary ms-4 text-white"
+          - else
+            = link_to "User", new_user_session_path, method: :delete ,class: "btn btn-primary ms-4 text-white"
+            = link_to "Admin", admin_index_path,class: "btn btn-primary ms-4 text-white"
