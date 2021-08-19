@@ -18,7 +18,7 @@ RSpec.feature "CreateUsers", type: :system do
     fill_in "Name", with: "First"
     fill_in "Email", with: "newuser@gmail.com"
     fill_in "Balance", with: 10000
-    fill_in "Role", with: @role.id
+    # fill_in "Role", with: @role.id
     fill_in "Password", with: "newuser123"
     fill_in "Password confirmation", with: "newuser123"
 

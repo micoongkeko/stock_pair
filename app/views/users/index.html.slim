@@ -1,72 +1,53 @@
 
 br/
 br/
-br/
-br/
 
 
-| code heree....
-br/
-
-p
-  | index/page (user transaction and everything)
-
-
-
-
-
-
-/ p#notice
-/   = notice
-
-/ .top_offset
-
-/ .container.px-4
-/   .table.card
-/     .d-flex.justify-content-center.card-header.text-primary
-/       h4 
-/         strong
-/           | User List
-/           / .btn.btn-info.px-4
-/           /   | User List
-
-/   .border-primary 
-/     table.table
-/       thead.table-bordered
-/         tr.text-primary.card-header.border-primary
-/           th.text-center[scope="col"]
-/             | User ID
-/           th.text-center[scope="col"]
-/             | Account Name
-/           th.text-center[scope="col"]
-/             | Balance
-/           th.text-center[scope="col"]
-/             | Email
-/           th.text-center[scope="col"]
-/             | Role
-/           th.text-center[scope="col"]
-/             | Actions
-
-/         - @users.each do |user|
-/           tr
-/             th.text-center.col-1.align-middle[scope="row"]
-/               = user.id
-/             td.text-center.align-middle
-/               = user.name
-/             td.text-center.align-middle
-/               = user.balance
-/             td.text-center.align-middle
-/               = user.email
-/             td.text-center.align-middle
-/               = user.role_id
-/             td.col-2
-/               .btn-group
-/                 .d-flex.justify-content-evenly
-/                   = link_to 'Show', user, class: "btn btn-outline-primary mx-1"
-/                   = link_to 'Edit', edit_user_path(user), class: "btn btn-outline-secondary mx-1"
-/                   = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger mx-1"
-
-
-
-/ .d-flex.justify-content-center
-/   = link_to 'Add User', new_user_registration_path,  class: "btn btn-primary mx-1 text-white m-4 col-1"
+.row
+  .col-md-6.p-0.bg-indigo.h-md-100
+    .text-black.d-md-flex.align-items-center.h-100.p-5.text-left.justify-content-center.bg-secondary
+      p#notice= notice
+      .logoarea.pt-5.pb-5
+        h2
+          strong Welcome and good luck with your trades, 
+          = current_user.name
+        p
+          strong Email: 
+          = current_user.email
+        p
+          strong Your available purchasing points are 
+          strong = current_user.balance
+  .col-md-6.p-0.bg-white.h-md-100
+    .d-md-flex.align-items-center.h-md-100.p-5.justify-content-around.flex-column
+      .card
+        .card-body
+          h2.card-title SELL ORDER
+          form
+            .form-group
+              label for="stockName"  Stock:
+              select#stockName.form-control
+                option Stock 1
+                option Stock 2
+                option Stock 3
+                option Stock 4
+            .form-group
+              label for="stockQty"  Quantity
+              input#stockQty.form-control placeholder=("Enter amount here") type="number" /
+            br/
+          a.btn.btn-primary.text-white href="#"  CONFIRM SELL ORDER
+      .card
+        .card-body
+          h2.card-title BUY ORDER
+          form
+            .form-group
+              label for="stockName"  Stock:
+              select#stockName.form-control
+                option Stock 1
+                option Stock 2
+                option Stock 3
+                option Stock 4
+            .form-group
+              label for="stockQty"  Quantity
+              input#stockQty.form-control placeholder=("Enter amount here") type="number" /
+            br/
+          a.btn.btn-primary.text-white href="#"  CONFIRM BUY ORDER
