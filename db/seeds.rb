@@ -8,6 +8,7 @@
 
 Role.destroy_all
 User.destroy_all
+Stock.destroy_all
 
 r1 = Role.create(name: "user")
 r2 = Role.create(name: "admin")

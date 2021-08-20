@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user! #, except: :index
+  before_action :authenticate_user! , except: [:show, :edit]
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
