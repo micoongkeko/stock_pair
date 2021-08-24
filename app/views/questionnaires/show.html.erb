@@ -1,0 +1,24 @@
+<h1 class="text-muted"><%= @questionnaire.name.upcase %></h1>
+
+<% @questionnaire.questions.each do |question| %>
+  <h3><%= question.name %></h3>
+
+  <% case question.question_type %>
+  <% when 'single_choice' %>
+    <% question.answers.each do |answer| %>
+      <p>
+        <%= radio_button_tag question.id, answer.id %>
+        <%= answer.name %>
+      </p>
+    <% end %>
+  <% when 'multiple_choice' %>
+    <% question.answers.each do |answer| %>
+      <p>
+        <%= check_box_tag question.id, answer.id %>
+        <%= answer.name %>
+      </p>
+    <% end %>
+  <% when 'long_answer' %>
+    <%= text_area_tag question.id %>
+  <% end %>
+<% end %>

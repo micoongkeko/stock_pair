@@ -1,0 +1,9 @@
+<div class='nested-fields'>
+  <div class='form-group my-2 ms-4'>
+    <%= form.hidden_field :_destroy %>
+    <%= form.text_field :name, placeholder: 'Answer', class: 'form-control' %>
+    <small class="badge bg-warning rounded-pill">
+      <%= link_to "Remove Answer", "#", data: { action: "click->nested-form#remove_association" } , class: 'text-white'%>
+    </small>
+  </div>
+</div>
